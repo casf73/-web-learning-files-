@@ -89,6 +89,7 @@
     -  &lt;th&gt; 用来表示表头行
     -  &lt;td&gt; 用来表示数据行
   - 9.语义标签
+    - 语义标签是html5预设的关于网页排版的标签 
     - <img src="/assets/images/语义标签.gif">
   - 10.特殊符号
     -  <img src="/assets/images/特殊符号.png">
