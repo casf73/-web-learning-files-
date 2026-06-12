@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8"> <!--确认编码格式-->
+    <meta name="description" content="123"> <!--介绍网页用途-->
+    <meta name="keywords" content="lyy,web"> <!--关键词-->
+    <link rel="icon" href="/web/images/1_be4c11ce5f-acapp.png"> <!--引入图片文件-->
+    <title>lyy的第一个web程序</title>
+</head>
+
+<body>
+
+
+    <table>
+        <caption>lyy</caption>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>张三</td>
+                <td>25</td>
+                <td>男</td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>30</td>
+                <td>女</td>
+            </tr>
+        </tbody>
+    </table>
+    <ul>
+        <h2>这是一个无序列表</h2>
+        <li>这是第一个列表项</li>
+        <li>这是第二个列表项</li>
+        <li>这是第三个列表项</li>
+    </ul>
+
+    <dl>
+        <dt>Name</dt>
+        <dd>Godzilla</dd>
+        <dt>Born</dt>
+        <dd>1952</dd>
+        <dt>Birthplace</dt>
+        <dd>Japan</dd>
+        <dt>Color</dt>
+        <dd>Green</dd>
+        <dd>Orange</dd>
+    </dl>
+
+
+
+
+    <!-- 注释快捷键ctrl + / -->
+    <!-- &nbsp;表示空格 <br>是回车 &lt;表示< &gt;表示>-->
+    <div>hel&nbsp;lo</div>
+    <span>world</span>
+    <h1>这是<br></h1>
+
+    <hr>
+    <p>这是段落</p>
+    <h2>这是h2</h2>
+    <p>这是段<br>落</p>
+    <p>使用 <code>printf()</code> 函数输出内容。</p>
+    <i>表示斜体</i><br>`
+    <b>表示加粗</b><br>
+    <u>表示下划线</u><br>
+    <del>表示删除线</del><br>
+    <img width="300" height="200" src="https://cdn.acwing.com/media/article/image/2022/03/01/1_3ec4c1cf99-mountain.jpg"
+        alt="图片"><br>
+    <audio controls src="/web/audio/bgm.mp3">播放失败</audio>
+    <br><video width="640" height="360" controls src="/web/video/video1.mp4">播放失败</video>
+    <br><video controls width="640" height="360">
+        <source src="/web/video/video1.mp4" type="video/mp4">
+    </video>
+    <br><a href="https://www.acwing.com" target="_blank">
+        <button>点击跳转到AcWing</button>
+    </a>
+    <form action="https://www.acwing.com" method="get">
+        <label for="username">用户名:</label>
+        <input type="text" name="username" id="username" placeholder="请输入用户名">
+        <br>
+        <label for="password">密码:</label>
+        <input type="password" name="password" id="password" placeholder="请输入密码">
+        <br>
+        <label for="age">年龄:</label>
+        <input type="number" name="age" id="age" placeholder="请输入年龄">
+        <br>
+        <input type="radio" name="language" id="cpp" value="cpp">
+        <label for="cpp">Cpp</label>
+        <input type="radio" name="language" id="python" value="python">
+        <label for="python">Python</label>
+        <input type="radio" name="language" id="java" value="java">
+        <label for="java">Java</label>
+        <br>
+        <button type="submit" id="submit">提交</button>
+        <br>
+        <label for="textarea"></label>
+        <textarea name="text" id="textarea" placeholder="请输入内容"></textarea>
+        <br>
+        <label for="language">选择语言:</label>
+        <select name="language" id="language">
+            <option value=""></option>
+            <option selected value="CPP">Cpp</option>
+            <option value="Python">Python</option>
+            <option value="Java">Java</option>
+        </select>
+    </form>
+</body>
+
+
+</html>
