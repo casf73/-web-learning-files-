@@ -83,11 +83,27 @@
   - 8.表格
     - &lt;table&gt;创建一个表格
     -  &lt;caption&gt;表示表格的标题
-    -  &lt;thead&gt;表示表格的列头
-    -  &lt;tbody&gt; 表示表格的数据
-    -  &lt;tr&gt; 表示一行
-    -  &lt;th&gt; 用来表示表头行
-    -  &lt;td&gt; 用来表示数据行
+    -  &lt;thead&gt;表示表格的列头行
+    -  &lt;tbody&gt; 表示表格的数据行
+    -  &lt;tr&gt; 用来修饰一行的数据
+    -  &lt;th&gt; 用来表示列头行的数据
+    -  &lt;td&gt; 用来表示数据行的数据
+```html
+<table>
+    <caption>My Table</caption>
+    <thead>
+        <tr>
+            <th colspan="2">The table header</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>The table body</td>
+            <td>with two columns</td>
+        </tr>
+    </tbody>
+</table>
+```
   - 9.语义标签
     - 语义标签是html5预设的关于网页排版的标签 
     - <img src="/assets/images/语义标签.gif">
