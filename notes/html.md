@@ -34,6 +34,8 @@
 
 ### 常用文本标签
 
+大部分的文本标签其实都可以被认为是div和span，通过css调整具体样式形成的
+
 #### `<div>`
 
 块级容器标签。
@@ -401,6 +403,170 @@ header
 │
 └── footer
 ```
+---
+
+### 其他常见语义标签
+
+#### `<figure>`
+
+表示独立内容容器。
+
+通常用于：
+
+* 图片
+* 图表
+* 插图
+* 代码块
+* 示例内容
+
+示例：
+
+```html
+<figure>
+    <img src="html.png"
+         alt="HTML Logo">
+</figure>
+```
+
+---
+
+#### `<figcaption>`
+
+表示 `figure` 的标题或说明文字。
+
+通常与 `figure` 搭配使用。
+
+示例：
+
+```html
+<figure>
+    <img src="html.png"
+         alt="HTML Logo">
+
+    <figcaption>
+        HTML5 Logo
+    </figcaption>
+</figure>
+```
+
+效果：
+
+```text
+┌───────────┐
+│   图片     │
+└───────────┘
+
+HTML5 Logo
+```
+
+---
+
+### figure 与 div 的区别
+
+传统写法：
+
+```html
+<div class="image">
+    <img src="html.png">
+
+    <div class="caption">
+        HTML5 Logo
+    </div>
+</div>
+```
+
+HTML5 语义化写法：
+
+```html
+<figure>
+    <img src="html.png">
+
+    <figcaption>
+        HTML5 Logo
+    </figcaption>
+</figure>
+```
+
+优点：
+
+* 代码可读性更高
+* 语义更明确
+* 更有利于 SEO
+* 更符合 HTML5 规范
+
+---
+
+### 常见语义标签总结
+
+```html
+<header>
+<nav>
+<main>
+<section>
+<article>
+<footer>
+```
+
+用于描述网页整体结构。
+
+---
+
+```html
+<aside>
+<figure>
+<figcaption>
+<details>
+<summary>
+<time>
+<mark>
+```
+
+用于增强页面语义化。
+
+---
+
+### 推荐网页结构
+
+```html
+<body>
+
+<header>
+    网站头部
+</header>
+
+<nav>
+    导航栏
+</nav>
+
+<main>
+
+    <section>
+
+        <article>
+
+            <h1>文章标题</h1>
+
+            <figure>
+                <img src="html.png">
+
+                <figcaption>
+                    HTML5 Logo
+                </figcaption>
+            </figure>
+
+        </article>
+
+    </section>
+
+</main>
+
+<footer>
+    网站页脚
+</footer>
+
+</body>
+```
+
 
 ---
 
