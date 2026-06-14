@@ -1,8 +1,9 @@
 # HTML 学习笔记
 
-- ## html基础标签
-  - 1.html文件结构
-    - html代码示例
+## 1. HTML 文件结构
+
+### HTML 代码示例
+
 ```html
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -16,56 +17,247 @@
 </body>
 </html>
 ```
-  - 2.文本标签
-    - 大部分文本标签都可以看成&lt;div&gt;与 &lt;span&gt;
-    - &lt;div&gt;
-    - &lt;span&gt;
-    - &lt;h1&gt; - &lt;h6&gt;
-    - &lt;p&gt;
-    - &lt;pre&gt;
-    - &lt;hr&gt; 生成一个水平线
-    - &lt;i&gt; <i>>表示斜体</i>
-    - &lt;b&gt; <b>>表示粗体</b>
-    - &lt;del&gt; <del>>表示删除线</del>
-  - 3.图片
-    - &lt;img&gt;
-      - src属性表示图片的地址
-      - alt属性表示图片无法正常显示后的文本
-      - height和width属性用来调节图片的大小
-  - 4.音频与视频
-    - &lt;audio&gt; 和&lt;video&gt;
-      - 同样使用src表示地址
-      - 如果有多个资源则浏览器会从上往下尝试加载
+
+### 常见标签说明
+
+| 标签                | 作用          |
+| ----------------- | ----------- |
+| `<!DOCTYPE html>` | 声明 HTML5 文档 |
+| `<html>`          | HTML 根标签    |
+| `<head>`          | 页面配置信息      |
+| `<body>`          | 页面主体内容      |
+| `<title>`         | 网页标题        |
+
+---
+
+## 2. 文本标签
+
+### 常用文本标签
+
+#### `<div>`
+
+块级容器标签。
+
+```html
+<div>内容</div>
+```
+
+#### `<span>`
+
+行内容器标签。
+
+```html
+<span>内容</span>
+```
+
+#### 标题标签
+
+```html
+<h1>一级标题</h1>
+<h2>二级标题</h2>
+<h3>三级标题</h3>
+<h4>四级标题</h4>
+<h5>五级标题</h5>
+<h6>六级标题</h6>
+```
+
+#### 段落标签
+
+```html
+<p>这是一个段落</p>
+```
+
+#### 预格式化文本
+
+```html
+<pre>
+保留空格和换行
+</pre>
+```
+
+#### 水平分割线
+
+```html
+<hr>
+```
+
+#### 斜体
+
+```html
+<i>斜体文字</i>
+```
+
+#### 粗体
+
+```html
+<b>粗体文字</b>
+```
+
+#### 删除线
+
+```html
+<del>删除线文字</del>
+```
+
+---
+
+## 3. 图片
+
+### 图片标签
+
+```html
+<img src="图片地址" alt="图片描述">
+```
+
+### 常用属性
+
+| 属性       | 作用           |
+| -------- | ------------ |
+| `src`    | 图片路径         |
+| `alt`    | 图片加载失败时显示的文本 |
+| `width`  | 图片宽度         |
+| `height` | 图片高度         |
+
+### 示例
+
+```html
+<img
+    src="./images/html.png"
+    alt="HTML Logo"
+    width="300">
+```
+
+---
+
+## 4. 音频与视频
+
+### 音频
+
 ```html
 <audio controls>
-    <source src="/audios/sound1" type="audio/mpeg"/>
-    <source src="/audios/sound2" type="audio/mpeg"/>
+    <source src="/audios/sound1.mp3" type="audio/mpeg">
+    <source src="/audios/sound2.mp3" type="audio/mpeg">
 </audio>
+```
 
+### 视频
+
+```html
 <video controls width="800">
-
-    <source src="/videos/video1.mp4"
-            type="video/mp4">
-
-    <source src="/videos/video2.mp4"
-            type="video/mp4">
+    <source src="/videos/video1.mp4" type="video/mp4">
+    <source src="/videos/video2.mp4" type="video/mp4">
 
     Sorry, your browser doesn't support embedded videos.
 </video>
 ```
-  - 5.超链接
-    - &lt;a&gt;
-      - href表示跳转的链接
-      - target="blank" 表示新开一个标签页打开网站
-  - 6.表单
-    - &lt;form&gt;用来需要向用户收集信息的时候使用
-      - 每个标签都可以使用&lt;label&gt;修饰
-      - 包括input的各种类型输入
-      - textarea
-      - button
-      - select
+
+### 常用属性
+
+| 属性         | 作用     |
+| ---------- | ------ |
+| `controls` | 显示播放控件 |
+| `autoplay` | 自动播放   |
+| `loop`     | 循环播放   |
+| `muted`    | 静音     |
+| `width`    | 视频宽度   |
+
+---
+
+## 5. 超链接
+
+### 超链接标签
+
 ```html
-<label for="pet-select">Choose a pet:</label>
+<a href="https://www.baidu.com">
+    百度
+</a>
+```
+
+### 常用属性
+
+| 属性                | 作用     |
+| ----------------- | ------ |
+| `href`            | 跳转地址   |
+| `target="_blank"` | 新标签页打开 |
+
+### 示例
+
+```html
+<a
+    href="https://www.baidu.com"
+    target="_blank">
+    百度
+</a>
+```
+
+---
+
+## 6. 表单
+
+### form
+
+用于收集用户信息。
+
+```html
+<form>
+</form>
+```
+
+### 常用表单元素
+
+#### label
+
+```html
+<label for="username">
+    用户名
+</label>
+```
+
+#### input
+
+```html
+<input type="text">
+```
+
+常见类型：
+
+```html
+<input type="text">
+<input type="password">
+<input type="email">
+<input type="number">
+<input type="radio">
+<input type="checkbox">
+<input type="file">
+```
+
+#### textarea 可以改变大小的文本输入框
+
+```html
+<textarea></textarea>
+```
+
+#### button
+
+```html
+<button>提交</button>
+```
+
+#### select
+
+```html
+<select>
+    <option>选项1</option>
+    <option>选项2</option>
+</select>
+```
+
+### 示例
+
+```html
+<label for="pet-select">
+    Choose a pet:
+</label>
 
 <select name="pets" id="pet-select">
     <option value="">--Please choose an option--</option>
@@ -76,26 +268,74 @@
     <option value="spider">Spider</option>
     <option value="goldfish">Goldfish</option>
 </select>
-``` 
-  - 7.列表
-    - 分别为&lt;ul&gt; 和 &lt;ol&gt;列表
-    - &lt;li&gt;是用来表示一行的
-  - 8.表格
-    - &lt;table&gt;创建一个表格
-    -  &lt;caption&gt;表示表格的标题
-    -  &lt;thead&gt;表示表格的列头行
-    -  &lt;tbody&gt; 表示表格的数据行
-    -  &lt;tr&gt; 用来修饰一行的数据
-    -  &lt;th&gt; 用来表示列头行的数据
-    -  &lt;td&gt; 用来表示数据行的数据
+```
+
+---
+
+## 7. 列表
+
+### 无序列表
+
+```html
+<ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+</ul>
+```
+
+效果：
+
+* HTML
+* CSS
+* JavaScript
+
+---
+
+### 有序列表
+
+```html
+<ol>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+</ol>
+```
+
+效果：
+
+1. HTML
+2. CSS
+3. JavaScript
+
+---
+
+### 列表项
+
+```html
+<li></li>
+```
+
+表示列表中的一项。
+
+---
+
+## 8. 表格
+
+### 表格示例
+
 ```html
 <table>
     <caption>My Table</caption>
+
     <thead>
         <tr>
-            <th colspan="2">The table header</th>
+            <th colspan="2">
+                The table header
+            </th>
         </tr>
     </thead>
+
     <tbody>
         <tr>
             <td>The table body</td>
@@ -104,8 +344,81 @@
     </tbody>
 </table>
 ```
-  - 9.语义标签
-    - 语义标签是html5预设的关于网页排版的标签 
-    - <img src="/assets/images/语义标签.gif">
-  - 10.特殊符号
-    -  <img src="/assets/images/特殊符号.png">
+
+### 常用标签
+
+| 标签        | 作用    |
+| --------- | ----- |
+| `table`   | 创建表格  |
+| `caption` | 表格标题  |
+| `thead`   | 表头    |
+| `tbody`   | 表体    |
+| `tr`      | 表格行   |
+| `th`      | 表头单元格 |
+| `td`      | 数据单元格 |
+
+---
+
+## 9. 语义标签
+
+HTML5 提供了一系列描述页面结构的标签。
+
+### 常见语义标签
+
+```html
+<header></header>
+
+<nav></nav>
+
+<main></main>
+
+<section></section>
+
+<article></article>
+
+<aside></aside>
+
+<footer></footer>
+```
+
+### 作用
+
+* 提高代码可读性
+* 有利于 SEO
+* 更符合网页结构设计
+
+### 结构图
+
+```md
+header
+│
+├── nav
+│
+├── main
+│   ├── section
+│   ├── article
+│   └── aside
+│
+└── footer
+```
+
+---
+
+## 10. HTML 特殊符号
+
+### 常用特殊字符
+
+| 显示  | 写法        |
+| --- | --------- |
+| `<` | `&lt;`    |
+| `>` | `&gt;`    |
+| `&` | `&amp;`   |
+| 空格  | `&nbsp;`  |
+| ©   | `&copy;`  |
+| ™   | `&trade;` |
+| ¥   | `&yen;`   |
+
+---
+
+
+
