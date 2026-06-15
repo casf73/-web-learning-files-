@@ -4,13 +4,15 @@
     box-sizing: border-box;
 }
 
-.mydiv {
-    width: 200px;
-    height: 200px;
-    background-image: url('/web/assets/images/特殊符号.png'),
-        url('/web/assets/images/语义标签.gif');
-    background-color: aqua;
-    background-repeat: no-repeat;
-    background-size: 50% 100%, 50% 100%;
-    background-position: left top, 100px, top;
+.div_outer {
+    width: 300px;
+    height: 300px;
+    background-color: lightblue;
+}
+
+.div_inner {
+    width: 50px;
+    height: 50px;
+    background-color: brown;
+    margin: 100px;
 }
