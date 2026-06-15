@@ -620,3 +620,1076 @@ height: 100vh;
 | rem | 相对于根元素字体大小 |
 | vw | 相对于视窗宽度的百分比 |
 | vh | 相对于视窗高度的百分比 |
+
+---
+
+# 8. 字体与文本
+
+## 8.1 字体大小（font-size）
+
+设置文字大小。
+
+```css
+font-size: 20px;
+```
+
+## 8.2 字体类型（font-family）
+
+设置字体。
+
+```css
+font-family: "Microsoft YaHei";
+```
+
+多个字体备用：
+
+```css
+font-family: "Microsoft YaHei", Arial, sans-serif;
+```
+
+## 8.3 字体粗细（font-weight）
+
+设置字体粗细。
+
+```css
+font-weight: normal;
+font-weight: bold;
+```
+
+常见取值：
+
+| 值 | 说明 |
+|--------|--------|
+| normal | 正常（400） |
+| bold | 加粗（700） |
+| 100~900 | 数字控制粗细 |
+
+示例：
+
+```css
+font-weight: 700;
+font-weight: 900;
+```
+
+---
+
+## 8.4 字体样式（font-style）
+
+设置字体是否倾斜。
+
+```css
+font-style: normal;
+font-style: italic;
+font-style: oblique;
+```
+
+| 值 | 说明 |
+|--------|--------|
+| normal | 正常 |
+| italic | 斜体 |
+| oblique | 强制倾斜 |
+
+---
+
+### 如何让单行文字垂直居中
+
+```css
+height: 40px;
+line-height: 40px;
+```
+
+或者：
+
+```css
+display: flex;
+align-items: center;
+justify-content: center;
+```
+
+---
+# 9. 背景（Background）
+
+## 9.1 背景颜色（background-color）
+
+设置元素背景颜色。
+
+```css
+background-color: red;
+```
+
+十六进制：
+
+```css
+background-color: #ff0000;
+```
+
+RGB：
+
+```css
+background-color: rgb(255, 0, 0);
+```
+
+RGBA：
+
+```css
+background-color: rgba(255, 0, 0, 0.5);
+```
+
+透明背景：
+
+```css
+background-color: transparent;
+```
+
+---
+
+## 9.2 背景图片（background-image）
+
+为元素设置一个或多个背景图片。
+
+```css
+background-image: url("./bg.jpg");
+```
+
+多个背景图：
+
+```css
+background-image:
+    url("./left.png"),
+    url("./right.png");
+```
+
+注意：
+
+```text
+先写的图片显示在上层
+后写的图片显示在下层
+```
+
+---
+
+### 渐变背景
+
+线性渐变：
+
+```css
+background-image:
+    linear-gradient(red, blue);
+```
+
+透明渐变：
+
+```css
+background-image:
+    linear-gradient(
+        rgba(0,0,255,0.5),
+        rgba(255,255,0,0.5)
+    );
+```
+
+示例：
+
+```css
+background-image:
+    linear-gradient(
+        rgba(0,0,255,0.5),
+        rgba(255,255,0,0.5)
+    );
+```
+
+---
+
+## 9.3 背景大小（background-size）
+
+设置背景图片大小。
+
+### 固定大小
+
+```css
+background-size: 200px 100px;
+```
+
+格式：
+
+```css
+background-size: 宽度 高度;
+```
+
+---
+
+### 百分比
+
+```css
+background-size: 50% 100%;
+```
+
+相对于背景容器尺寸计算。
+
+---
+
+### cover
+
+```css
+background-size: cover;
+```
+
+特点：
+
+```text
+保持图片比例
+铺满整个容器
+可能裁剪图片
+不留空白
+```
+
+适用于：
+
+```text
+网页背景
+Banner背景
+首页大图
+```
+
+---
+
+### contain
+
+```css
+background-size: contain;
+```
+
+特点：
+
+```text
+保持图片比例
+完整显示图片
+可能出现空白
+不裁剪图片
+```
+
+适用于：
+
+```text
+Logo
+商品图
+图标
+```
+
+---
+
+## 9.4 背景重复（background-repeat）
+
+控制背景图片是否平铺。
+
+默认：
+
+```css
+background-repeat: repeat;
+```
+
+效果：
+
+```text
+水平和垂直同时重复
+```
+
+---
+
+不重复：
+
+```css
+background-repeat: no-repeat;
+```
+
+---
+
+水平重复：
+
+```css
+background-repeat: repeat-x;
+```
+
+---
+
+垂直重复：
+
+```css
+background-repeat: repeat-y;
+```
+
+---
+
+## 9.5 背景位置（background-position）
+
+设置背景图片起始位置。
+
+默认：
+
+```css
+background-position: left top;
+```
+
+---
+
+常见写法：
+
+```css
+background-position: center center;
+```
+
+```css
+background-position: center;
+```
+
+```css
+background-position: right bottom;
+```
+
+---
+
+使用具体坐标：
+
+```css
+background-position: 100px 50px;
+```
+
+表示：
+
+```text
+向右100px
+向下50px
+```
+
+---
+
+多个背景图：
+
+```css
+background-position:
+    left top,
+    right top;
+```
+
+---
+
+## 9.6 背景固定（background-attachment）
+
+控制背景是否跟随页面滚动。
+
+### scroll（默认）
+
+```css
+background-attachment: scroll;
+```
+
+效果：
+
+```text
+页面滚动
+背景跟着滚动
+```
+
+---
+
+### fixed
+
+```css
+background-attachment: fixed;
+```
+
+效果：
+
+```text
+页面滚动
+背景固定不动
+```
+
+示例：
+
+```css
+body {
+    background-image: url("./bg.jpg");
+    background-attachment: fixed;
+}
+```
+
+---
+
+
+## 9.7 background-image 与 img 的区别
+
+### img
+
+```html
+<img src="cat.jpg">
+```
+
+表示：
+
+```text
+图片属于页面内容
+```
+
+适用于：
+
+```text
+头像
+商品图
+文章配图
+Logo
+```
+
+---
+
+### background-image
+
+```css
+background-image: url("bg.jpg");
+```
+
+表示：
+
+```text
+图片属于页面装饰
+```
+
+适用于：
+
+```text
+背景图
+Banner图
+按钮背景
+卡片背景
+```
+
+---
+# 10. 边框（Border）
+
+## 10.1 边框样式（border-style）
+
+设置边框的样式。
+
+```css
+border-style: solid;
+```
+
+常见取值：
+
+| 值 | 说明 |
+|------|------|
+| none | 无边框 |
+| solid | 实线 |
+| dashed | 虚线 |
+| dotted | 点线 |
+| double | 双实线 |
+
+示例：
+
+```css
+border-style: dashed;
+```
+
+---
+
+## 10.2 边框宽度（border-width）
+
+设置边框粗细。
+
+```css
+border-width: 2px;
+```
+
+示例：
+
+```css
+border-width: 5px;
+```
+
+也可以分别设置：
+
+```css
+border-top-width: 2px;
+border-right-width: 4px;
+border-bottom-width: 6px;
+border-left-width: 8px;
+```
+
+---
+
+## 10.3 边框颜色（border-color）
+
+设置边框颜色。
+
+```css
+border-color: red;
+```
+
+---
+
+### 单独设置四条边
+
+```css
+border-top-color: red;
+border-right-color: blue;
+border-bottom-color: green;
+border-left-color: yellow;
+```
+
+---
+
+## 10.4 边框简写（border）
+
+最常用写法。
+
+```css
+border: 2px solid red;
+```
+
+格式：
+
+```css
+border: 宽度 样式 颜色;
+```
+
+例如：
+
+```css
+border: 1px solid black;
+```
+
+```css
+border: 5px dashed blue;
+```
+
+---
+
+## 10.5 圆角边框（border-radius）
+
+设置边框圆角。
+
+```css
+border-radius: 10px;
+```
+
+效果：
+
+```text
+┌─────┐
+│     │
+└─────┘
+
+↓
+
+╭─────╮
+│     │
+╰─────╯
+```
+
+---
+
+### 圆形
+
+当宽高相等时：
+
+```css
+border-radius: 50%;
+```
+
+例如：
+
+```css
+img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+```
+
+效果：
+
+```text
+□ → ○
+```
+
+常用于：
+
+```text
+头像
+用户图片
+Logo
+```
+
+---
+
+### 椭圆
+
+```css
+border-radius: 50px / 25px;
+```
+
+效果：
+
+```text
+○ → ⬭
+```
+
+---
+
+### 单独设置四个角
+
+```css
+border-radius: 10px 20px 30px 40px;
+```
+
+顺序：
+
+```text
+左上
+右上
+右下
+左下
+```
+
+---
+
+## 10.6 表格边框合并（border-collapse）
+
+用于 table 表格。
+
+默认：
+
+```css
+border-collapse: separate;
+```
+
+效果：
+
+```text
+每个单元格拥有自己的边框
+```
+
+---
+
+合并边框：
+
+```css
+border-collapse: collapse;
+```
+
+效果：
+
+```text
+相邻边框合并为一条线
+```
+
+示例：
+
+```css
+table {
+    border-collapse: collapse;
+}
+```
+
+```html
+<table>
+    <tr>
+        <td>A</td>
+        <td>B</td>
+    </tr>
+</table>
+```
+
+---
+
+## 10.7 单独设置四条边
+
+上边框：
+
+```css
+border-top: 1px solid red;
+```
+
+右边框：
+
+```css
+border-right: 1px solid blue;
+```
+
+下边框：
+
+```css
+border-bottom: 1px solid green;
+```
+
+左边框：
+
+```css
+border-left: 1px solid yellow;
+```
+
+
+---
+
+# 11. 显示模式与文本溢出
+
+## 11.1 display
+
+用于设置元素的显示模式。
+
+---
+
+### block（块级元素）
+
+特点：
+
+- 独占一行
+- 可以设置 width
+- 可以设置 height
+- 可以设置 margin
+- 可以设置 padding
+- 默认宽度占满父元素
+
+示例：
+
+```css
+display: block;
+```
+
+常见块级元素：
+
+```html
+<div></div>
+<p></p>
+<h1></h1>
+<section></section>
+<article></article>
+```
+
+效果：
+
+```text
+元素1
+────────
+
+元素2
+────────
+```
+
+每个元素单独占一行。
+
+---
+
+### inline（行内元素）
+
+特点：
+
+- 可以与其他元素处于同一行
+- width 无效
+- height 无效
+- 水平方向 margin 有效
+- 水平方向 padding 有效
+- 垂直方向 margin 无效
+- 垂直方向 padding 不影响布局
+- 宽度默认由内容决定
+
+示例：
+
+```css
+display: inline;
+```
+
+常见行内元素：
+
+```html
+<span></span>
+<a></a>
+```
+
+效果：
+
+```text
+文字1 文字2 文字3
+```
+
+位于同一行。
+
+---
+
+### inline-block（行内块元素）
+
+特点：
+
+- 可以与其他元素处于同一行
+- 可以设置 width
+- 可以设置 height
+- 可以设置 margin
+- 可以设置 padding
+- 宽度默认由内容决定
+
+示例：
+
+```css
+display: inline-block;
+```
+
+常见应用：
+
+```html
+<button></button>
+<img>
+<input>
+```
+
+效果：
+
+```text
+┌────┐ ┌────┐ ┌────┐
+│按钮1│ │按钮2│ │按钮3│
+└────┘ └────┘ └────┘
+```
+
+---
+
+### display 对比
+
+| 特性 | block | inline | inline-block |
+|--------|--------|--------|--------|
+| 独占一行 | √ | × | × |
+| 设置 width | √ | × | √ |
+| 设置 height | √ | × | √ |
+| 设置 margin | √ | 部分有效 | √ |
+| 设置 padding | √ | 部分有效 | √ |
+| 默认宽度 | 100% | 内容宽度 | 内容宽度 |
+
+---
+
+## 11.2 white-space
+
+控制空白字符与换行方式。
+
+默认：
+
+```css
+white-space: normal;
+```
+
+特点：
+
+```text
+自动换行
+多个空格合并为一个
+```
+
+---
+
+### nowrap
+
+```css
+white-space: nowrap;
+```
+
+特点：
+
+```text
+禁止换行
+```
+
+文字会一直向右延伸。
+
+---
+
+### pre
+
+```css
+white-space: pre;
+```
+
+特点：
+
+```text
+保留空格
+保留换行
+保留Tab
+```
+
+效果类似：
+
+```html
+<pre></pre>
+```
+
+---
+
+## 11.3 overflow
+
+控制内容超出容器后的处理方式。
+
+---
+
+### visible（默认）
+
+```css
+overflow: visible;
+```
+
+特点：
+
+```text
+超出继续显示
+```
+
+---
+
+### hidden
+
+```css
+overflow: hidden;
+```
+
+特点：
+
+```text
+超出隐藏
+```
+
+常用于：
+
+```text
+图片裁剪
+圆角头像
+文本省略
+```
+
+---
+
+### scroll
+
+```css
+overflow: scroll;
+```
+
+特点：
+
+```text
+始终显示滚动条
+```
+
+---
+
+### auto
+
+```css
+overflow: auto;
+```
+
+特点：
+
+```text
+超出时显示滚动条
+未超出不显示
+```
+
+
+---
+
+### overflow-x
+
+控制水平方向溢出。
+
+```css
+overflow-x: auto;
+```
+
+---
+
+### overflow-y
+
+控制垂直方向溢出。
+
+```css
+overflow-y: auto;
+```
+
+---
+
+## 11.4 text-overflow
+
+控制被隐藏文字的显示方式。
+
+注意：
+
+```css
+text-overflow
+```
+
+只对文本有效。
+
+---
+
+### clip（默认）
+
+```css
+text-overflow: clip;
+```
+
+效果：
+
+```text
+直接裁掉
+```
+
+例如：
+
+```text
+这是一段很长很长的文字
+
+↓
+
+这是一段很长很
+```
+
+---
+
+### ellipsis
+
+```css
+text-overflow: ellipsis;
+```
+
+效果：
+
+```text
+显示 ...
+```
+
+例如：
+
+```text
+这是一段很长很长的文字
+
+↓
+
+这是一段很长...
+```
+
+---
+
+## 11.5 单行文本省略号
+
+实现：
+
+```css
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+```
+
+三者缺一不可。
+
+效果：
+
+```text
+这是一段非常非常长的文字...
+```
+
+---
