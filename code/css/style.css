@@ -4,16 +4,13 @@
     box-sizing: border-box;
 }
 
-h3 {
-    text-align: center;
-}
-
-h4 {
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.coem {
-    text-align: center;
+.mydiv {
+    width: 200px;
+    height: 200px;
+    background-image: url('/web/assets/images/特殊符号.png'),
+        url('/web/assets/images/语义标签.gif');
+    background-color: aqua;
+    background-repeat: no-repeat;
+    background-size: 50% 100%, 50% 100%;
+    background-position: left top, 100px, top;
 }
