@@ -1693,3 +1693,1697 @@ text-overflow: ellipsis;
 ```
 
 ---
+# 12. 外边距（Margin）与内边距（Padding）
+
+## 12.1 Margin（外边距）
+
+Margin（外边距）用于控制：
+
+```text
+当前元素与其他元素之间的距离
+```
+
+位置：
+
+```text
+margin
+↓
+border
+↓
+padding
+↓
+content
+```
+
+盒模型：
+
+```text
+┌───────────────────────┐
+│        margin         │
+│ ┌───────────────────┐ │
+│ │      border       │ │
+│ │ ┌───────────────┐ │ │
+│ │ │   padding     │ │ │
+│ │ │ ┌───────────┐ │ │ │
+│ │ │ │ content   │ │ │ │
+│ │ │ └───────────┘ │ │ │
+│ │ └───────────────┘ │ │
+│ └───────────────────┘ │
+└───────────────────────┘
+```
+
+---
+
+## 12.2 Margin 简写
+
+### 一个值
+
+```css
+margin: 20px;
+```
+
+表示：
+
+```text
+上 右 下 左
+20 20 20 20
+```
+
+---
+
+### 两个值
+
+```css
+margin: 20px 10px;
+```
+
+表示：
+
+```text
+上下 20px
+左右 10px
+```
+
+---
+
+### 三个值
+
+```css
+margin: 20px 10px 5px;
+```
+
+表示：
+
+```text
+上   20px
+左右 10px
+下   5px
+```
+
+---
+
+### 四个值
+
+```css
+margin: 20px 10px 5px 30px;
+```
+
+表示：
+
+```text
+上   20px
+右   10px
+下   5px
+左   30px
+```
+
+顺时针记忆：
+
+```text
+上 → 右 → 下 → 左
+```
+
+---
+
+## 12.3 单独设置 Margin
+
+```css
+margin-top: 20px;
+margin-right: 20px;
+margin-bottom: 20px;
+margin-left: 20px;
+```
+
+---
+
+## 12.4 Margin 可取值
+
+### length
+
+固定值：
+
+```css
+margin: 20px;
+```
+
+---
+
+### %
+
+百分比
+
+```css
+margin: 10%;
+```
+
+注意：
+
+```text
+margin百分比
+永远相对于父元素宽度计算
+```
+
+即使：
+
+```css
+margin-top: 10%;
+```
+
+也是参考父元素宽度。
+
+---
+
+### auto
+
+```css
+margin: auto;
+```
+
+浏览器自动计算。
+
+---
+
+## 12.5 水平居中
+
+```css
+.box {
+    width: 300px;
+    margin: 0 auto;
+}
+```
+
+条件：
+
+```text
+必须是块级元素
+必须有宽度
+```
+
+效果：
+
+```text
+左右剩余空间平均分配
+```
+
+---
+
+## 12.6 Margin 塌陷（Margin Collapse）
+
+
+---
+
+### 相邻兄弟元素
+
+```html
+<div class="a"></div>
+<div class="b"></div>
+```
+
+```css
+.a {
+    margin-bottom: 50px;
+}
+
+.b {
+    margin-top: 100px;
+}
+```
+
+实际上：
+
+```text
+间距 = 100px
+```
+
+浏览器取最大值。
+
+这叫：
+
+```text
+Margin Collapse
+外边距合并
+```
+
+---
+
+### 父子元素塌陷
+
+```html
+<div class="parent">
+    <div class="child"></div>
+</div>
+```
+
+```css
+.child {
+    margin-top: 100px;
+}
+```
+
+可能出现：
+
+```text
+父元素整体向下移动100px
+```
+
+而不是：
+
+```text
+子元素在父元素内部下移100px
+```
+
+---
+
+### 为什么发生？
+
+当父元素：
+
+```text
+没有 border
+没有 padding
+```
+
+时：
+
+```text
+子元素 margin-top
+会跑到父元素外面
+```
+
+---
+
+### 解决方法
+
+#### 方法1：添加 padding
+
+```css
+.parent {
+    padding-top: 1px;
+}
+```
+
+---
+
+#### 方法2：添加 border
+
+```css
+.parent {
+    border: 1px solid transparent;
+}
+```
+
+---
+
+#### 方法3：overflow
+
+```css
+.parent {
+    overflow: hidden;
+}
+```
+
+---
+
+#### 方法4：flex
+
+```css
+.parent {
+    display: flex;
+}
+```
+
+现代开发最常用。
+
+---
+
+## 12.7 Padding（内边距）
+
+### 什么是 Padding
+
+Padding 用于控制：
+
+```text
+内容(content)
+与
+边框(border)
+之间的距离
+```
+
+位置：
+
+```text
+border
+↓
+padding
+↓
+content
+```
+
+---
+
+## 12.8 Padding 简写
+
+### 一个值
+
+```css
+padding: 20px;
+```
+
+表示：
+
+```text
+上右下左
+20px
+```
+
+---
+
+### 两个值
+
+```css
+padding: 20px 10px;
+```
+
+表示：
+
+```text
+上下20px
+左右10px
+```
+
+---
+
+### 三个值
+
+```css
+padding: 20px 10px 5px;
+```
+
+表示：
+
+```text
+上20px
+左右10px
+下5px
+```
+
+---
+
+### 四个值
+
+```css
+padding: 20px 10px 5px 30px;
+```
+
+表示：
+
+```text
+上 20
+右 10
+下 5
+左 30
+```
+
+---
+
+## 12.9 单独设置 Padding
+
+```css
+padding-top: 20px;
+padding-right: 20px;
+padding-bottom: 20px;
+padding-left: 20px;
+```
+
+---
+
+## 12.10 Padding 可取值
+
+### length
+
+```css
+padding: 20px;
+```
+
+---
+
+### %
+
+```css
+padding: 10%;
+```
+
+同样：
+
+```text
+百分比参考父元素宽度
+```
+
+---
+
+## 12.11 Padding 与 Margin 区别
+
+### Padding
+
+```text
+内容与边框之间距离
+```
+
+```css
+padding: 20px;
+```
+
+效果：
+
+```text
+┌─────────┐
+│         │
+│ content │
+│         │
+└─────────┘
+```
+
+---
+
+### Margin
+
+```text
+元素与元素之间距离
+```
+
+```css
+margin: 20px;
+```
+
+效果：
+
+```text
+┌─────┐
+
+↑20px
+
+┌─────┐
+```
+
+---
+
+## 12.12 Padding 会影响盒子大小
+
+默认：
+
+```css
+box-sizing: content-box;
+```
+
+例如：
+
+```css
+.box {
+    width: 200px;
+    padding: 20px;
+}
+```
+
+最终宽度：
+
+```text
+200 + 20 + 20
+=
+240px
+```
+
+---
+
+## 12.13 Box-Sizing
+
+### content-box（默认）
+
+```css
+box-sizing: content-box;
+```
+
+表示：
+
+```text
+width
+=
+content宽度
+```
+
+最终宽度：
+
+```text
+content
++
+padding
++
+border
+```
+
+---
+
+### border-box
+
+```css
+box-sizing: border-box;
+```
+
+表示：
+
+```text
+width
+=
+整个盒子宽度
+```
+
+例如：
+
+```css
+.box {
+    width: 200px;
+    padding: 20px;
+    border: 10px solid red;
+
+    box-sizing: border-box;
+}
+```
+
+计算：
+
+```text
+content
+=
+200
+-20
+-20
+-10
+-10
+
+=
+140px
+```
+
+最终宽度：
+
+```text
+200px
+```
+
+---
+
+## 12.14 Background 与 Padding
+
+默认：
+
+```css
+background-clip: border-box;
+```
+
+背景颜色会覆盖：
+
+```text
+content ✔
+padding ✔
+border下方 ✔
+margin ✘
+```
+
+即：
+
+```css
+background-color: lightblue;
+```
+
+看到的是：
+
+```text
+整个盒子都有背景色
+
+除了margin
+```
+
+---
+# 13. box-sizing
+
+## 13.1 什么是 box-sizing
+
+`box-sizing` 用于定义浏览器如何计算元素的总宽度和总高度。
+
+即：
+
+```text
+width 和 height
+到底表示内容区大小
+还是整个盒子大小
+```
+
+---
+
+## 13.2 content-box（默认值）
+
+```css
+box-sizing: content-box;
+```
+
+特点：
+
+```text
+width = content宽度
+height = content高度
+```
+
+设置：
+
+```css
+.box {
+    width: 200px;
+    padding: 20px;
+    border: 10px solid black;
+}
+```
+
+计算：
+
+```text
+总宽度
+=
+content
++
+padding-left
++
+padding-right
++
+border-left
++
+border-right
+
+=
+200
++
+20
++
+20
++
+10
++
+10
+
+=
+260px
+```
+
+即：
+
+```text
+padding 和 border
+会增加元素最终尺寸
+```
+
+---
+
+## 13.3 border-box
+
+```css
+box-sizing: border-box;
+```
+
+特点：
+
+```text
+width = 整个盒子宽度
+height = 整个盒子高度
+```
+
+设置：
+
+```css
+.box {
+    width: 200px;
+    padding: 20px;
+    border: 10px solid black;
+
+    box-sizing: border-box;
+}
+```
+
+计算：
+
+```text
+content宽度
+=
+200
+-
+20
+-
+20
+-
+10
+-
+10
+
+=
+140px
+```
+
+最终：
+
+```text
+盒子总宽度
+=
+200px
+```
+
+即：
+
+```text
+padding 和 border
+不会增加元素最终尺寸
+
+而是压缩 content 区域
+```
+
+---
+
+## 13.4 content-box 与 border-box 对比
+
+| 属性 | content-box | border-box |
+|--------|--------|--------|
+| 默认值 | √ | × |
+| width表示 | 内容区宽度 | 整个盒子宽度 |
+| padding影响总宽度 | √ | × |
+| border影响总宽度 | √ | × |
+| content区域会被压缩 | × | √ |
+
+---
+
+# 14. 定位（Position）
+
+
+`position` 用于指定元素在页面中的定位方式。
+
+```css
+position: static;
+```
+
+通过：
+
+```css
+top
+right
+bottom
+left
+```
+
+控制元素的位置。
+
+---
+
+## 14.2 定位元素（Positioned Element）
+
+只要元素的：
+
+```css
+position
+```
+
+不是：
+
+```css
+static
+```
+
+那么该元素就是：
+
+```text
+定位元素（Positioned Element）
+```
+
+即：
+
+```css
+position: relative;
+position: absolute;
+position: fixed;
+position: sticky;
+```
+
+都属于定位元素。
+
+---
+
+## 14.3 top、right、bottom、left
+
+用于控制定位元素的位置。
+
+```css
+top: 20px;
+right: 20px;
+bottom: 20px;
+left: 20px;
+```
+
+含义：
+
+```text
+top
+↓
+距离上边距离
+
+right
+↓
+距离右边距离
+
+bottom
+↓
+距离下边距离
+
+left
+↓
+距离左边距离
+```
+
+注意：
+
+```css
+position: static;
+```
+
+时：
+
+```css
+top
+right
+bottom
+left
+```
+
+全部无效。
+
+---
+
+# 14.4 static（默认定位）
+
+默认值：
+
+```css
+position: static;
+```
+
+特点：
+
+```text
+正常文档流
+```
+
+元素按照：
+
+```html
+HTML书写顺序
+```
+
+排列。
+
+---
+
+例如：
+
+```html
+<div>A</div>
+<div>B</div>
+<div>C</div>
+```
+
+显示：
+
+```text
+A
+B
+C
+```
+
+---
+
+此时：
+
+```css
+top
+left
+right
+bottom
+z-index
+```
+
+全部无效。
+
+---
+
+# 14.5 relative（相对定位）
+
+```css
+position: relative;
+```
+
+特点：
+
+```text
+相对于自身原来的位置移动
+```
+
+---
+
+例如：
+
+```css
+.box {
+    position: relative;
+
+    left: 50px;
+    top: 20px;
+}
+```
+
+效果：
+
+```text
+原位置
+↓
+
+向右50px
+向下20px
+```
+
+---
+
+## relative 最大特点
+
+元素原来的位置仍然保留。
+
+例如：
+
+```text
+A
+B
+C
+```
+
+B：
+
+```css
+position: relative;
+left: 100px;
+```
+
+显示：
+
+```text
+A
+
+      B
+
+C
+```
+
+但是：
+
+```text
+B原来的位置仍然占着
+```
+
+所以：
+
+```text
+C不会上来
+```
+
+---
+
+## 为什么经常写 relative
+
+因为：
+
+```css
+position: relative;
+```
+
+可以作为：
+
+```text
+absolute的参考点
+```
+
+例如：
+
+```css
+.parent {
+    position: relative;
+}
+```
+
+---
+
+# 14.6 absolute（绝对定位）
+
+```css
+position: absolute;
+```
+
+特点：
+
+```text
+脱离文档流
+```
+
+---
+
+例如：
+
+```css
+.box {
+    position: absolute;
+}
+```
+
+效果：
+
+```text
+不再占据原来的位置
+```
+
+---
+
+## absolute 的参考对象
+
+规则：
+
+```text
+寻找最近的非static祖先元素
+```
+
+即：
+
+```css
+position: relative;
+position: absolute;
+position: fixed;
+position: sticky;
+```
+
+都可以作为参考。
+
+---
+
+例如：
+
+```html
+<div class="parent">
+    <div class="child"></div>
+</div>
+```
+
+```css
+.parent {
+    position: relative;
+}
+
+.child {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+```
+
+结果：
+
+```text
+child
+相对于parent左上角定位
+```
+
+---
+
+如果找不到：
+
+```css
+position: relative;
+```
+
+则：
+
+```text
+参考浏览器窗口
+```
+
+---
+
+## absolute + relative
+
+
+```css
+.parent {
+    position: relative;
+}
+
+.child {
+    position: absolute;
+}
+```
+
+
+---
+
+# 14.7 fixed（固定定位）
+
+```css
+position: fixed;
+```
+
+特点：
+
+```text
+脱离文档流
+```
+
+并且：
+
+```text
+始终相对于浏览器窗口
+```
+
+---
+
+例如：
+
+```css
+.box {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+}
+```
+
+效果：
+
+```text
+右下角悬浮
+```
+
+---
+
+滚动页面：
+
+```text
+元素不会移动
+```
+
+---
+
+常见用途：
+
+```text
+返回顶部按钮
+客服按钮
+导航栏
+悬浮菜单
+```
+
+---
+
+# 14.8 sticky（粘性定位）
+
+```css
+position: sticky;
+```
+
+特点：
+
+```text
+relative + fixed
+的结合
+```
+
+---
+
+例如：
+
+```css
+.title {
+    position: sticky;
+    top: 0;
+}
+```
+
+效果：
+
+```text
+未滚动
+↓
+像relative
+
+滚动到顶部
+↓
+像fixed
+```
+
+---
+
+常见用途：
+
+```text
+吸顶导航栏
+目录栏
+分类标题
+```
+
+---
+
+# 14.9 z-index
+
+控制元素层级。
+
+```css
+z-index: 1;
+```
+
+数字越大：
+
+```text
+越靠上
+```
+
+例如：
+
+```css
+.box1 {
+    z-index: 1;
+}
+
+.box2 {
+    z-index: 10;
+}
+```
+
+结果：
+
+```text
+box2覆盖box1
+```
+
+---
+
+注意：
+
+```css
+z-index
+```
+
+只对：
+
+```text
+定位元素
+```
+
+有效。
+
+即：
+
+```css
+relative
+absolute
+fixed
+sticky
+```
+
+---
+
+# 14.10 Position 对比
+
+| 属性 | 是否脱离文档流 | 参考对象 |
+|--------|--------|--------|
+| static | × | 无 |
+| relative | × | 自己原来的位置 |
+| absolute | √ | 最近非static祖先 |
+| fixed | √ | 浏览器窗口 |
+| sticky | ×（部分时间） | 滚动容器 |
+
+---
+
+# 15. 浮动（Float）
+
+## 15.1 什么是 Float
+
+`float` 用于让元素向左或向右排列。
+
+实现文字环绕图片
+
+```html
+<img src="cat.jpg">
+<p>这是一段文字...</p>
+```
+
+```css
+img {
+    float: left;
+}
+```
+
+效果：
+
+```text
+┌────┐ 文字文字文字文字
+│图片│ 文字文字文字文字
+│图片│ 文字文字文字文字
+└────┘ 文字文字文字文字
+```
+
+---
+
+## 15.2 Float 的取值
+
+### 左浮动
+
+```css
+float: left;
+```
+
+效果：
+
+```text
+所有元素向左排列
+```
+
+例如：
+
+```css
+.box {
+    float: left;
+}
+```
+
+显示：
+
+```text
+┌──┐┌──┐┌──┐
+│A ││B ││C │
+└──┘└──┘└──┘
+```
+
+---
+
+### 右浮动
+
+```css
+float: right;
+```
+
+效果：
+
+```text
+所有元素向右排列
+```
+
+显示：
+
+```text
+                ┌──┐
+          ┌──┐  │C │
+┌──┐      │B │  └──┘
+│A │      └──┘
+└──┘
+```
+
+---
+
+### 不浮动
+
+```css
+float: none;
+```
+
+默认值。
+
+---
+
+## 15.3 Float 的特点
+
+### 1. 脱离普通文档流
+
+例如：
+
+```html
+<div class="box"></div>
+<p>文字</p>
+```
+
+```css
+.box {
+    float: left;
+}
+```
+
+结果：
+
+```text
+文字会上来环绕浮动元素
+```
+
+---
+
+### 2. 保留部分流动性
+
+这是 float 和 absolute 最大区别。
+
+#### absolute
+
+```css
+position: absolute;
+```
+
+完全脱离文档流。
+
+后面元素会认为：
+
+```text
+这个元素不存在
+```
+
+---
+
+#### float
+
+```css
+float: left;
+```
+
+后面文字仍然会避开它。
+
+```text
+文字会围绕它排列
+```
+
+---
+
+### 3. 会影响 display
+
+例如：
+
+```css
+span {
+    display: inline;
+    float: left;
+}
+```
+
+浏览器会自动变成：
+
+```css
+display: block;
+```
+
+所以：
+
+```text
+浮动元素都可以设置宽高
+```
+
+---
+
+## 15.4 浮动布局
+
+例如：
+
+```html
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+```
+
+```css
+.box {
+    width: 100px;
+    height: 100px;
+
+    float: left;
+}
+```
+
+效果：
+
+```text
+┌───┐┌───┐┌───┐
+│ A ││ B ││ C │
+└───┘└───┘└───┘
+```
+
+---
+
+## 15.5 浮动导致的问题
+
+### 父元素高度塌陷
+
+例如：
+
+```html
+<div class="parent">
+    <div class="child"></div>
+</div>
+```
+
+```css
+.parent {
+    background: lightblue;
+}
+
+.child {
+    width: 100px;
+    height: 100px;
+
+    float: left;
+}
+```
+
+结果：
+
+```text
+parent高度变成0
+```
+
+因为：
+
+```text
+浮动元素脱离普通文档流
+```
+
+父元素计算高度时：
+
+```text
+看不到child
+```
+
+---
+
+## 15.6 清除浮动（Clear）
+
+用于控制：
+
+```text
+当前元素不能与浮动元素同行
+```
+
+---
+
+### clear:left
+
+```css
+clear: left;
+```
+
+表示：
+
+```text
+清除左侧浮动
+```
+
+---
+
+### clear:right
+
+```css
+clear: right;
+```
+
+表示：
+
+```text
+清除右侧浮动
+```
+
+---
+
+### clear:both
+
+```css
+clear: both;
+```
+
+表示：
+
+```text
+同时清除左右浮动
+```
+
+开发最常用。
+
+---
+
+## 15.7 清除浮动示例
+
+```html
+<div class="left"></div>
+
+<div class="clear"></div>
+
+<p>文字</p>
+```
+
+```css
+.left {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+```
+
+效果：
+
+```text
+┌────┐
+│浮动│
+└────┘
+
+文字
+```
+
+文字被强制放到下面。
+
+---
+
+## 15.8 解决高度塌陷
+
+
+
+### 方法：伪元素
+
+```css
+.parent::after {
+    content: "";
+
+    display: block;
+    clear: both;
+}
+```
+
+---
+
