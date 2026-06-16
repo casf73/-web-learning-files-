@@ -1,0 +1,16 @@
+div {
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+    padding: 10px;
+    background-color: lightblue;
+    border: solid 10px gray;
+}
+
+div:nth-of-type(1) {
+    box-sizing: content-box;
+}
+
+div:nth-of-type(2) {
+    box-sizing: border-box;
+}

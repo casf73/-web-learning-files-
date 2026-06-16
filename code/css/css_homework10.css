@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    width: 50%;
+    height: 500px;
+    background-color: lightblue;
+    margin: 10px;
+}
+
+.container * {
+    width: 120px;
+    height: 120px;
+}
+
+.container *:nth-child(odd) {
+    background-color: lightsalmon;
+}
+
+.container *:nth-child(even) {
+    background-color: lightgreen;
+}
+
+.container:nth-of-type(1) {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+
+.container:nth-of-type(2) {
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+}
+
+.container:nth-of-type(2) *:nth-child(odd) {
+    flex-grow: 3;
+    flex-shrink: 3;
+}
+
+.container:nth-of-type(2) *:nth-child(even) {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
