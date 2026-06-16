@@ -3386,4 +3386,937 @@ clear: both;
 ```
 
 ---
+# 16. Flex 布局（Flexible Box）
 
+Flex 是一种一维布局模型，用于方便地控制元素在容器中的排列、对齐、伸缩和换行。
+
+---
+
+## 16.1 display: flex
+
+开启 Flex 布局：
+
+```css
+.container {
+    display: flex;
+}
+```
+
+特点：
+
+- 子元素自动成为 Flex Item
+- 默认横向排列
+- 默认不换行
+- 可以方便实现居中布局
+
+---
+
+## 16.2 flex-direction
+
+控制主轴方向。
+
+```css
+flex-direction: row;
+```
+
+### 取值
+
+#### row（默认）
+
+```css
+flex-direction: row;
+```
+
+```text
+1 2 3 4 →
+```
+
+主轴：
+
+```text
+左 → 右
+```
+
+---
+
+#### row-reverse
+
+```css
+flex-direction: row-reverse;
+```
+
+```text
+← 4 3 2 1
+```
+
+主轴：
+
+```text
+右 → 左
+```
+
+---
+
+#### column
+
+```css
+flex-direction: column;
+```
+
+```text
+1
+2
+3
+4
+↓
+```
+
+主轴：
+
+```text
+上 → 下
+```
+
+---
+
+#### column-reverse
+
+```css
+flex-direction: column-reverse;
+```
+
+```text
+4
+3
+2
+1
+↑
+```
+
+主轴：
+
+```text
+下 → 上
+```
+
+---
+
+## 16.3 flex-wrap
+
+控制是否换行。
+
+### nowrap（默认）
+
+```css
+flex-wrap: nowrap;
+```
+
+```text
+1 2 3 4 5 6 7
+```
+
+超出容器后压缩。
+
+---
+
+### wrap
+
+```css
+flex-wrap: wrap;
+```
+
+```text
+1 2 3 4
+5 6 7
+```
+
+第一行在上。
+
+---
+
+### wrap-reverse
+
+```css
+flex-wrap: wrap-reverse;
+```
+
+```text
+5 6 7
+1 2 3 4
+```
+
+第一行在下。
+
+---
+
+# 17. 主轴对齐 justify-content
+
+控制：
+
+```text
+主轴方向上的排列
+```
+
+---
+
+## flex-start
+
+```css
+justify-content: flex-start;
+```
+
+```text
+1 2 3
+```
+
+靠起点排列。
+
+---
+
+## flex-end
+
+```css
+justify-content: flex-end;
+```
+
+```text
+          1 2 3
+```
+
+靠终点排列。
+
+---
+
+## center
+
+```css
+justify-content: center;
+```
+
+```text
+      1 2 3
+```
+
+主轴居中。
+
+---
+
+## space-between
+
+```css
+justify-content: space-between;
+```
+
+```text
+1        2        3
+```
+
+特点：
+
+- 两端贴边
+- 中间均匀分布
+
+---
+
+## space-around
+
+```css
+justify-content: space-around;
+```
+
+特点：
+
+```text
+边缘间距
+=
+中间间距的一半
+```
+
+```text
+| 1    2    3 |
+```
+
+---
+
+## space-evenly
+
+```css
+justify-content: space-evenly;
+```
+
+特点：
+
+```text
+所有间距完全相等
+```
+
+```text
+|   1   2   3   |
+```
+
+---
+
+### space-evenly
+
+```text
+20px 20px 20px 20px
+```
+
+所有间距完全一致。
+
+---
+
+# 18. 交叉轴对齐 align-items
+
+控制：
+
+```text
+单行中的元素
+在交叉轴上的对齐方式
+```
+
+---
+
+## flex-start
+
+```css
+align-items: flex-start;
+```
+
+顶部对齐。
+
+---
+
+## flex-end
+
+```css
+align-items: flex-end;
+```
+
+底部对齐。
+
+---
+
+## center
+
+```css
+align-items: center;
+```
+
+垂直居中。
+
+---
+
+## stretch（默认）
+
+```css
+align-items: stretch;
+```
+
+拉伸填满交叉轴。
+
+---
+
+# 19. 多行对齐 align-content
+
+控制：
+
+```text
+多行(Flex Line)之间
+如何分布
+```
+
+必须满足：
+
+```css
+flex-wrap: wrap;
+```
+
+且出现多行。
+
+---
+
+## flex-start
+
+```css
+align-content: flex-start;
+```
+
+所有行贴顶部。
+
+---
+
+## flex-end
+
+```css
+align-content: flex-end;
+```
+
+所有行贴底部。
+
+---
+
+## center
+
+```css
+align-content: center;
+```
+
+所有行整体居中。
+
+---
+
+## stretch
+
+```css
+align-content: stretch;
+```
+
+剩余空间平均分配给各行。
+
+---
+
+## align-items 与 align-content 区别
+
+### align-items
+
+控制：
+
+```text
+元素
+```
+
+```text
+A B C D
+↑
+这一行里的元素
+```
+
+---
+
+### align-content
+
+控制：
+
+```text
+行
+```
+
+```text
+第一行
+
+第二行
+```
+
+---
+
+记忆：
+
+```text
+align-items
+↓
+管元素
+
+align-content
+↓
+管行
+```
+
+---
+
+# 20. Flex Item 属性
+
+---
+
+## 20.1 order
+
+控制项目显示顺序。
+
+```css
+.item {
+    order: 1;
+}
+```
+
+默认：
+
+```css
+order: 0;
+```
+
+值越小越靠前。
+
+---
+
+## 20.2 flex-grow
+
+控制剩余空间如何扩张。
+
+```css
+.item {
+    flex-grow: 1;
+}
+```
+
+默认：
+
+```css
+flex-grow: 0;
+```
+
+---
+
+例如：
+
+```css
+.item1 {
+    flex-grow: 3;
+}
+
+.item2 {
+    flex-grow: 1;
+}
+```
+
+剩余空间：
+
+```text
+3 : 1
+```
+
+分配。
+
+---
+
+## 20.3 flex-shrink
+
+控制空间不足时如何收缩。
+
+```css
+.item {
+    flex-shrink: 1;
+}
+```
+
+默认：
+
+```css
+flex-shrink: 1;
+```
+
+---
+
+例如：
+
+```css
+.item1 {
+    flex-shrink: 3;
+}
+
+.item2 {
+    flex-shrink: 1;
+}
+```
+
+缩小时：
+
+```text
+3 : 1
+```
+
+收缩。
+
+---
+
+# 21. flex-basis
+
+控制：
+
+```text
+Flex主轴上的初始尺寸
+```
+
+---
+
+## 示例
+
+```css
+.item {
+    flex-basis: 100px;
+}
+```
+
+表示：
+
+```text
+基础尺寸100px
+```
+
+---
+
+## 与 width 的区别
+
+```css
+.item {
+    width: 100px;
+    flex-basis: 200px;
+}
+```
+
+结果：
+
+```text
+200px
+```
+
+因为：
+
+```text
+Flex环境中
+
+flex-basis
+优先级高于
+width
+```
+
+---
+
+## row 时
+
+```css
+flex-direction: row;
+```
+
+```css
+flex-basis: 100px;
+```
+
+表示：
+
+```text
+宽度100px
+```
+
+---
+
+## column 时
+
+```css
+flex-direction: column;
+```
+
+```css
+flex-basis: 100px;
+```
+
+表示：
+
+```text
+高度100px
+```
+
+---
+
+## width 与 flex-basis
+
+### width
+
+```text
+永远控制宽度
+```
+
+---
+
+### flex-basis
+
+```text
+控制主轴尺寸
+```
+
+---
+
+# 22. 响应式布局（Responsive Layout）
+
+响应式布局指：
+
+```text
+同一个网页
+在不同设备和屏幕尺寸下
+自动调整布局和样式
+```
+
+例如：
+
+```text
+电脑端
+┌──────────────┐
+│ Logo 导航栏 │
+├──────────────┤
+│ 内容 内容    │
+└──────────────┘
+
+手机端
+┌────────┐
+│ Logo   │
+├────────┤
+│ 导航栏 │
+├────────┤
+│ 内容   │
+└────────┘
+```
+
+---
+
+## 22.1 为什么需要响应式布局
+
+不同设备屏幕尺寸不同：
+
+```text
+手机
+320px ~ 480px
+
+平板
+768px ~ 1024px
+
+笔记本
+1366px
+
+显示器
+1920px+
+```
+
+如果页面写死：
+
+```css
+width: 1200px;
+```
+
+手机上会出现：
+
+```text
+横向滚动条
+内容显示不全
+```
+
+因此需要响应式布局。
+
+---
+
+# 23. 视口（Viewport）
+
+浏览器可见区域称为：
+
+```text
+Viewport（视口）
+```
+
+必须添加：
+
+```html
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+```
+
+作用：
+
+```text
+width=device-width
+↓
+页面宽度等于设备宽度
+
+initial-scale=1.0
+↓
+默认缩放比例1倍
+```
+
+---
+
+# 24. 相对单位
+
+响应式布局尽量少用：
+
+```css
+width: 1000px;
+```
+
+更多使用：
+
+```css
+%
+vw
+vh
+rem
+em
+```
+
+---
+
+# 25. max-width 与 min-width
+
+## max-width
+
+最大宽度
+
+```css
+img {
+    max-width: 100%;
+}
+```
+
+作用：
+
+```text
+图片最大不超过父容器
+```
+
+---
+
+## min-width
+
+最小宽度
+
+```css
+.container {
+    min-width: 300px;
+}
+```
+
+表示：
+
+```text
+最小300px
+```
+
+即使屏幕更小也不会继续缩小。
+
+---
+
+# 26. 媒体查询（Media Query）
+
+响应式布局核心技术。
+
+语法：
+
+```css
+@media (条件) {
+
+}
+```
+
+---
+
+## 手机布局
+
+```css
+@media (max-width: 768px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+}
+```
+
+效果：
+
+```text
+电脑
+A B C
+
+手机
+A
+B
+C
+```
+
+---
+
+## 平板布局
+
+```css
+@media (max-width: 1024px) {
+
+}
+```
+
+---
+
+## 桌面布局
+
+```css
+@media (min-width: 1025px) {
+
+}
+```
+
+---
+
+# 27. Flex 响应式布局
+
+Flex 是现代响应式布局最常用方案。
+
+---
+
+## 自动换行
+
+```css
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+```
+
+效果：
+
+```text
+电脑
+
+A B C D E F
+
+手机
+
+A B
+C D
+E F
+```
+
+---
+
+## 自适应宽度
+
+```css
+.item {
+    flex: 1;
+}
+```
+
+表示：
+
+```text
+自动分配剩余空间
+```
+
+---
+
+## 固定最小宽度
+
+```css
+.item {
+    flex: 1;
+    min-width: 200px;
+}
+```
+
+效果：
+
+```text
+屏幕够宽
+↓
+一行多个
+
+屏幕变窄
+↓
+自动换行
+```
+
+---
