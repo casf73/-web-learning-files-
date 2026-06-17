@@ -9,7 +9,7 @@
 ---
 
 - **MDN WEB Docs：** 这个网址真的nb，包含了html，cs，js的各种知识
-  - https://developer.mozilla.org/zh-CN/
+  - <a href="https://developer.mozilla.org/zh-CN/" target="_blank">
 - **项目结构**
   - /notes下的.md文件是我学习过程中的笔记记录各种相关的知识点
   - /code下的文件是我学习过程中编写的代码
