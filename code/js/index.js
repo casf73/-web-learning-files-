@@ -3,10 +3,12 @@ let run = document.querySelector("#anniu");
 let output = document.querySelector(".output");
 
 const main = () => {
-    run.addEventListener("click",
-        () => {
-            let s = input.value;
-            output.textContent = s;
+    input.addEventListener("keyup",
+        (e) => {
+            if (e.key === "a") {
+                let s = input.value;
+                output.textContent = s;
+            }
         }
     )
 }

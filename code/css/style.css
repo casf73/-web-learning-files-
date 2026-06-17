@@ -13,20 +13,28 @@
 
 
 .input {
-    width: 100%;
+    width: 75%;
     min-height: 100px;
     resize: none;
     font-size: 24px;
+    margin: 5px;
+    border: solid 2px black;
 }
 
 #anniu {
     width: 100px;
-    margin-bottom: 10px
+    margin: 5px
 }
 
 .output {
-    width: 100%;
+    width: 75%;
     height: 200px;
     background-color: lightgray;
     font-size: 24px;
+    margin: 5px;
+    border: solid 2px black;
+}
+
+label {
+    margin: 5px;
 }
