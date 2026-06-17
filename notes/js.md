@@ -407,3 +407,506 @@ a.sort((x, y) => x - y);
 - 返回 = 0：不变
 
 ---
+
+# 6. 函数
+
+## 箭头函数
+
+```js
+const show = () => {
+    console.log("这是箭头函数");
+};
+
+show();
+```
+
+带参数：
+
+```js
+const add = (a, b) => {
+    return a + b;
+};
+
+console.log(add(3, 5));
+```
+
+如果函数体只有一行，并且直接返回结果，可以简写：
+
+```js
+const add = (a, b) => a + b;
+```
+
+等价于：
+
+```js
+const add = (a, b) => {
+    return a + b;
+};
+```
+
+---
+# 7.类
+
+js中的类跟java中差不多
+
+## 定义
+
+- 创建类，创建类的示例
+- 继承
+- 静态方法与静态变量
+这些都与java中一样
+
+---
+
+# 8. 事件
+
+## 8.1 事件是什么
+
+JavaScript 中的代码很多时候不是一打开页面就执行，而是等用户做了某些操作后再执行。
+
+这些操作就叫做事件。
+
+例如：
+
+```txt
+点击按钮
+按下键盘
+输入内容
+鼠标移动
+页面加载完成
+窗口大小改变
+```
+
+简单理解：
+
+```txt
+事件 = 用户或浏览器发生的某种行为
+```
+
+---
+
+## 8.2 addEventListener 绑定事件
+
+可以通过 `addEventListener()` 给元素绑定事件。
+
+基本语法：
+
+```js
+元素.addEventListener("事件名", () => {
+    // 事件触发后执行的代码
+});
+```
+
+例如：
+
+```js
+let btn = document.querySelector("click");
+
+btn.addEventListener("click", () => {
+    console.log("按钮被点击了");
+});
+```
+
+意思是：
+
+```txt
+当按钮被点击时，执行里面的代码
+```
+
+---
+
+## 8.3 鼠标事件
+
+### 8.3.1 click
+
+`click` 表示鼠标左键点击。
+
+```js
+btn.addEventListener("click", () => {
+    console.log("点击了按钮");
+});
+```
+
+---
+
+### 8.3.2 dblclick
+
+`dblclick` 表示鼠标左键双击。
+
+```js
+btn.addEventListener("dblclick", () => {
+    console.log("双击了按钮");
+});
+```
+
+---
+
+### 8.3.3 contextmenu
+
+`contextmenu` 表示鼠标右键点击，通常会弹出右键菜单。
+
+```js
+box.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+    console.log("右键点击");
+});
+```
+
+`e.preventDefault()` 可以阻止浏览器默认右键菜单。
+
+---
+
+### 8.3.4 mousedown
+
+`mousedown` 表示鼠标按下。
+
+```js
+box.addEventListener("mousedown", (e) => {
+    console.log("鼠标按下");
+});
+```
+
+可以通过：
+
+```js
+e.button
+```
+
+判断按下的是哪个鼠标键。
+
+```txt
+0：鼠标左键
+1：鼠标中键
+2：鼠标右键
+```
+
+例如：
+
+```js
+box.addEventListener("mousedown", (e) => {
+    if (e.button === 0) {
+        console.log("按下左键");
+    } else if (e.button === 1) {
+        console.log("按下中键");
+    } else if (e.button === 2) {
+        console.log("按下右键");
+    }
+});
+```
+
+---
+
+### 8.3.5 mouseup
+
+`mouseup` 表示鼠标松开。
+
+```js
+box.addEventListener("mouseup", (e) => {
+    console.log("鼠标松开");
+});
+```
+
+同样也可以用：
+
+```js
+e.button
+```
+
+判断松开的是哪个鼠标键。
+
+---
+
+## 8.4 键盘事件
+
+### 8.4.1 keydown
+
+`keydown` 表示键盘按键被按下。
+
+```js
+document.addEventListener("keydown", (e) => {
+    console.log("按下了键盘");
+});
+```
+
+如果按住不松，`keydown` 可能会连续触发。
+
+可以通过：
+
+```js
+e.code
+```
+
+判断按下的是哪个键。
+
+例如：
+
+```js
+document.addEventListener("keydown", (e) => {
+    if (e.code === "Enter") {
+        console.log("按下了 Enter");
+    }
+});
+```
+
+---
+
+### 8.4.2 keyup
+
+`keyup` 表示键盘按键被松开。
+
+```js
+document.addEventListener("keyup", (e) => {
+    console.log("键盘松开");
+});
+```
+
+可以通过：
+
+```js
+e.key
+```
+
+判断松开的键。
+
+例如：
+
+```js
+document.addEventListener("keyup", (e) => {
+    if (e.key === "a") {
+        console.log("松开了 a 键");
+    }
+});
+```
+
+
+---
+
+## 8.5 键盘事件中的常用属性
+
+### 8.5.1 e.key
+
+`e.key` 表示用户实际按下的键值。
+
+```js
+document.addEventListener("keydown", (e) => {
+    console.log(e.key);
+});
+```
+
+例如：
+
+```txt
+a
+A
+Enter
+Shift
+Control
+Escape
+ArrowLeft
+```
+
+常见判断：
+
+```js
+if (e.key === "Enter") {
+    console.log("按下 Enter");
+}
+```
+
+---
+
+### 8.5.2 e.code
+
+`e.code` 表示键盘上的物理按键位置。
+
+```js
+document.addEventListener("keydown", (e) => {
+    console.log(e.code);
+});
+```
+
+例如：
+
+```txt
+KeyA
+Enter
+Space
+ArrowLeft
+```
+
+简单区别：
+
+```txt
+e.key  看输入结果
+e.code 看键盘位置
+```
+
+---
+
+### 8.5.3 e.altKey / e.ctrlKey / e.shiftKey
+
+这三个属性用来判断是否同时按下了功能键。
+
+```js
+document.addEventListener("keydown", (e) => {
+    if (e.ctrlKey) {
+        console.log("按住了 Ctrl");
+    }
+
+    if (e.shiftKey) {
+        console.log("按住了 Shift");
+    }
+
+    if (e.altKey) {
+        console.log("按住了 Alt");
+    }
+});
+```
+
+例如判断 `Shift + Enter`：
+
+```js
+input.addEventListener("keydown", (e) => {
+    if (e.shiftKey && e.key === "Enter") {
+        console.log("按下了 Shift + Enter");
+    }
+});
+```
+
+---
+
+## 8.6 表单事件
+
+### 8.6.1 focus
+
+`focus` 表示元素获得焦点。
+
+例如点击输入框后，输入框进入可输入状态。
+
+```js
+input.addEventListener("focus", () => {
+    console.log("输入框获得焦点");
+});
+```
+
+---
+
+### 8.6.2 blur
+
+`blur` 表示元素失去焦点。
+
+```js
+input.addEventListener("blur", () => {
+    console.log("输入框失去焦点");
+});
+```
+
+---
+
+### 8.6.3 change
+
+`change` 表示表单内容发生改变，并且失去焦点后触发。
+
+```js
+input.addEventListener("change", () => {
+    console.log("输入内容发生改变");
+});
+```
+
+---
+
+### 8.6.4 input
+
+`input` 表示输入框内容正在发生变化。
+
+```js
+input.addEventListener("input", () => {
+    console.log(input.value);
+});
+```
+
+如果想实现输入框和页面内容同步：
+
+```js
+input.addEventListener("input", () => {
+    output.textContent = input.value;
+});
+```
+
+---
+
+## 8.7 窗口事件
+
+窗口事件一般绑定在：
+
+```js
+window
+```
+
+上。
+
+---
+
+### 8.7.1 load
+
+`load` 表示页面资源加载完成后触发。
+
+```js
+window.addEventListener("load", () => {
+    console.log("页面加载完成");
+});
+```
+
+常用于页面加载完后再执行 JS。
+
+---
+
+### 8.7.2 resize
+
+`resize` 表示窗口大小发生变化。
+
+```js
+window.addEventListener("resize", () => {
+    console.log("窗口大小改变");
+});
+```
+
+---
+
+### 8.7.3 scroll
+
+`scroll` 表示页面发生滚动。
+
+```js
+window.addEventListener("scroll", () => {
+    console.log("页面正在滚动");
+});
+```
+
+---
+
+## 8.8 事件对象 event
+
+事件触发时，浏览器会自动传入一个事件对象。
+
+写成：
+
+```js
+element.addEventListener("click", (e) => {
+    console.log(e);
+});
+```
+`e` 里面保存了本次事件的信息。
+
+例如：
+
+```txt
+鼠标按了哪个键
+键盘按了哪个键
+事件发生在哪个元素上
+鼠标位置在哪里
+是否按住了 Ctrl / Shift / Alt
+```
+
+---
+
